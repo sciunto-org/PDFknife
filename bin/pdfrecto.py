@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Author: Francois Boulogne
-# License: GPLv3
 
 import argparse
 import subprocess
@@ -86,5 +84,5 @@ if __name__ == '__main__':
     # available_engines = find_available_engine()
     # logger.debug(f'Available engine: {available_engines}')
 
-    #recto(args.pdf, output=args.o, engine=available_engines[0])
+    # recto(args.pdf, output=args.o, engine=available_engines[0])
     recto(args.pdf, output=args.o)
