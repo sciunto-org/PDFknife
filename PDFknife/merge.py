@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import argparse
 import subprocess
 import logging
-import shutil
 
 logger = logging.getLogger()
+
 
 def merge(filenames, output=None, *, engine='pdftk'):
     """
@@ -47,5 +46,3 @@ def merge(filenames, output=None, *, engine='pdftk'):
     logger.debug(f'Executed command: {command}')
     process = subprocess.Popen(command, stdout=subprocess.PIPE)
     stdout, stderr = process.communicate()
-
-

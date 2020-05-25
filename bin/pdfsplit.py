@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import subprocess
 import logging
 
 from PDFknife import __version__, find_available_engine
 from PDFknife import split
+
 
 def main():
     parser = argparse.ArgumentParser(description='Split pdf',
@@ -25,7 +25,6 @@ def main():
         llevel = logging.INFO
     logger = logging.getLogger()
     logger.setLevel(llevel)
-
 
     steam_handler = logging.StreamHandler()
     steam_handler.setLevel(llevel)

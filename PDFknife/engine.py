@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import argparse
-import subprocess
 import logging
 import shutil
 
 logger = logging.getLogger()
+
 
 def find_available_engine(engines=('pdftk', 'gs', 'pdfunite', 'pdfjam')):
     """
@@ -19,4 +18,3 @@ def find_available_engine(engines=('pdftk', 'gs', 'pdfunite', 'pdfjam')):
         if shutil.which(engine) is not None:
             available.append(engine)
     return available
-
