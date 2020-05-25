@@ -6,62 +6,11 @@ import subprocess
 import logging
 import shutil
 
-
-def merge(filenames, output=None, *, engine='pdftk'):
-    """
-    Merge PDFs
-
-    :param filenames: PDF filepaths
-    :param output: PDF output
-    """
-    if output is None:
-        output = 'MERGED-' + filenames[0]
-
-    if engine == 'gs':
-        command = ['gs',
-                   '-sDEVICE=pdfwrite',
-                   '-dNOPAUSE',
-                   '-dQUIET',
-                   '-dBATCH',
-                   '-sOutputFile=' + output,
-                   ]
-        command.extend(filenames)
-    elif engine == 'pdftk':
-        command = ['pdftk', ]
-        command.extend(filenames)
-        command.extend(['cat', 'output'])
-        command.append(output)
-    elif engine == 'pdfunite':
-        command = ['pdfunite', ]
-        command.extend(filenames)
-        command.append(output)
-    elif engine == 'pdfjam':
-        command = ['pdfjam', ]
-        command.extend(filenames)
-        command.append('-o')
-        command.append(output)
-    else:
-        raise ValueError(f'Wrong engine name: {engine}')
-
-    logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+from PDFknife import __version__
+from PDFknife import merge, find_available_engine
 
 
-def find_available_engine(engines=('pdftk', 'gs', 'pdfunite', 'pdfjam')):
-    """
-    Build a list of available engines.
-
-
-    """
-    available = []
-    for engine in engines:
-        if shutil.which(engine) is not None:
-            available.append(engine)
-    return available
-
-
-if __name__ == '__main__':
+def main():
     # TODO add option for engine
     parser = argparse.ArgumentParser(description='Merge pdfs',
                                      epilog='')
@@ -93,3 +42,7 @@ if __name__ == '__main__':
     logger.debug(f'Available engine: {available_engines}')
 
     merge(args.pdf, output=args.o, engine=available_engines[0])
+
+
+if __name__ == '__main__':
+    main()
