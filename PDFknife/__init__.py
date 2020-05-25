@@ -1,4 +1,4 @@
-__version__ = '0.1'
+__version__ = '0.1.0'
 
 from .A5 import A5
 from .merge import merge
