@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import argparse
 import subprocess
 import logging
 
 logger = logging.getLogger()
+
 
 def split(filename, output=None):
     """
