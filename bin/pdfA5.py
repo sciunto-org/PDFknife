@@ -6,47 +6,11 @@ import subprocess
 import logging
 import shutil
 
-
-def main(filename, output=None, *, engine='pdfjam'):
-    """
-    Merge successive pages into two joined A5 pages.
-
-    :param filename: PDF filepath
-    :param output: PDF output
-    """
-    if output is None:
-        output = 'A5-' + filename
-
-    if engine == 'pdfjam':
-        command = ['pdfjam',
-                   '--nup', '2x1', '--landscape',
-                   filename,
-                   '--outfile',
-                   output,
-                   ]
-    else:
-        raise ValueError(f'Wrong engine name: {engine}')
-
-    logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+from PDFknife import __version__
+from PDFknife import A5
 
 
-def find_available_engine(engines=('pdfjam',)):
-    """
-    Build a list of available engines.
-
-
-    """
-    available = []
-    for engine in engines:
-        logger.debug(f'Check engine: {engine}')
-        if shutil.which(engine) is not None:
-            available.append(engine)
-    return available
-
-
-if __name__ == '__main__':
+def main():
     # TODO add option for engine
     parser = argparse.ArgumentParser(description='Side-by-side A5 pdf',
                                      epilog='')
@@ -72,7 +36,11 @@ if __name__ == '__main__':
 
     logger.debug(f'Script arguments: {args}')
 
-    available_engines = find_available_engine()
+    available_engines = find_available_engine(engines=('pdfjam',))
     logger.debug(f'Available engine: {available_engines}')
 
-    main(args.pdf, output=args.o, engine=available_engines[0])
+    A5(args.pdf, output=args.o, engine=available_engines[0])
+
+
+if __name__ == '__main__':
+    main()

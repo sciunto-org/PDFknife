@@ -5,41 +5,11 @@ import argparse
 import subprocess
 import logging
 
-
-def main(filenames, level='printer'):
-    """
-    Compress PDFs
-
-    screen : 72dpi
-    ebook : 150dpi
-    printer : 300dpi
-    prepress : 300dpi
-
-    :param filenames: PDF filepaths
-    """
-    if level == 'all':
-        levels = ['screen', 'ebook', 'printer', 'prepress']
-    else:
-        levels = [level, ]
-
-    for level in levels:
-        for filename in filenames:
-            output = 'shrinked-' + level + '-' + filename
-            command = ['gs',
-                       '-sDEVICE=pdfwrite',
-                       '-dCompatibilityLevel=1.4',
-                       '-dPDFSETTINGS=/' + level,
-                       '-dNOPAUSE',
-                       '-dQUIET',
-                       '-dBATCH',
-                       '-sOutputFile=' + output,
-                       filename]
-            logger.debug(command)
-            process = subprocess.Popen(command, stdout=subprocess.PIPE)
-            stdout, stderr = process.communicate()
+from PDFknife import __version__
+from PDFknife import shrink
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description='Shrink a pdf',
                                      epilog='')
     parser.add_argument('--version', action='version', version=__version__)
@@ -77,4 +47,8 @@ if __name__ == '__main__':
 
     logger.debug(f'Script arguments: {args}')
 
-    main(args.pdf, compression)
+    shrink(args.pdf, compression)
+
+
+if __name__ == '__main__':
+    main()
