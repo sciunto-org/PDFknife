@@ -5,32 +5,11 @@ import argparse
 import subprocess
 import logging
 
-
-def main(filename, top=1, bottom=1, right=1, left=1, output=None):
-    """
-    Trim a PDF
-
-    :param filename: PDF filepath
-    :param output: PDF output
-    """
-    if output is None:
-        output = 'TRIMMED-' + filename
-    command = ['pdfjam',
-               filename,
-               '--trim',
-               f'\'{left}mm {bottom}mm {right}mm {top}mm\'',
-               '--clip',
-               'true',
-               '--outfile',
-               output,
-               ]
-    logger.debug(command)
-    logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+from PDFknife import __version__
+from PDFknife import trim
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description='Trim a pdf',
                                      epilog='')
     parser.add_argument('--version', action='version', version=__version__)
@@ -69,7 +48,11 @@ if __name__ == '__main__':
 
     logger.debug(f'Script arguments: {args}')
 
-    main(args.pdf,
+    trim(args.pdf,
          top=args.top, bottom=args.bottom,
          right=args.right, left=args.left,
          output=args.o)
+
+
+if __name__ == '__main__':
+    main()
