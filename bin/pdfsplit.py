@@ -5,32 +5,10 @@ import argparse
 import subprocess
 import logging
 
+from PDFknife import __version__
+from PDFknife import split
 
-def split(filename, output=None):
-    """
-    Split PDFs
-
-    :param filename: PDF filepath
-    :param output: PDF output
-    """
-    if output is None:
-        name = filename.rstrip('.pdf')
-        output = 'PAGE-%05d_' + name + '.pdf'
-    command = ['gs',
-               '-sDEVICE=pdfwrite',
-               '-dNOPAUSE',
-               '-dQUIET',
-               '-dBATCH',
-               '-sOutputFile=' + output,
-               ]
-    command.append(filename)
-    logger.debug(command)
-    logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
-
-
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description='Split pdf',
                                      epilog='')
     parser.add_argument('--version', action='version', version=__version__)
@@ -57,3 +35,7 @@ if __name__ == '__main__':
 
     for f in args.pdf:
         split(f, output=args.o)
+
+
+if __name__ == '__main__':
+    main()
