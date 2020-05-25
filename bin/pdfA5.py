@@ -2,11 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import subprocess
 import logging
-import shutil
 
-from PDFknife import __version__
+from PDFknife import __version__, find_available_engine
 from PDFknife import A5
 
 
@@ -28,7 +26,6 @@ def main():
         llevel = logging.INFO
     logger = logging.getLogger()
     logger.setLevel(llevel)
-
 
     steam_handler = logging.StreamHandler()
     steam_handler.setLevel(llevel)

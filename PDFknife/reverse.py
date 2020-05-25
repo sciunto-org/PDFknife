@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import argparse
 import subprocess
 import logging
-import shutil
 
 logger = logging.getLogger()
+
 
 def reverse(filename, output=None, *, engine='pdftk'):
     """
