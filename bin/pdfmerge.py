@@ -6,8 +6,8 @@ import subprocess
 import logging
 import shutil
 
-from PDFknife import __version__
-from PDFknife import merge, find_available_engine
+from PDFknife import __version__, find_available_engine
+from PDFknife import merge
 
 
 def main():

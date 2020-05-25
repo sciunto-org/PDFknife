@@ -5,7 +5,7 @@ import argparse
 import subprocess
 import logging
 
-from PDFknife import __version__
+from PDFknife import __version__, find_available_engine
 from PDFknife import split
 
 def main():

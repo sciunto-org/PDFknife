@@ -6,6 +6,7 @@ import subprocess
 import logging
 import shutil
 
+from PDFknife import __version__
 from PDFknife import A5
 
 

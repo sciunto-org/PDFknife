@@ -6,51 +6,10 @@ import subprocess
 import logging
 import shutil
 
+from PDFknife import __version__, find_available_engine
+from PDFknife import reverse
 
-def main(filename, output=None, *, engine='pdftk'):
-    """
-    reverse a PDF
-
-    :param filenames: PDF filepath
-    :param output: PDF output
-    """
-    if output is None:
-        output = 'REVERSED-' + filename
-
-    if engine == 'pdfjam':
-        command = ['pdfjam',
-                   filename,
-                   'last-1',
-                   '--outfile',
-                   output,
-                   ]
-    elif engine == 'pdftk':
-        command = ['pdftk', ]
-        command.append(filename)
-        command.extend(['cat', 'end-1', 'output'])
-        command.append(output)
-    else:
-        raise ValueError(f'Wrong engine name: {engine}')
-
-    logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
-
-
-def find_available_engine(engines=('pdftk', 'pdfjam')):
-    """
-    Build a list of available engines.
-
-
-    """
-    available = []
-    for engine in engines:
-        if shutil.which(engine) is not None:
-            available.append(engine)
-    return available
-
-
-if __name__ == '__main__':
+def main():
     # TODO add option for engine
     parser = argparse.ArgumentParser(description='Reverse pdf',
                                      epilog='')
@@ -76,7 +35,11 @@ if __name__ == '__main__':
 
     logger.debug(f'Script arguments: {args}')
 
-    available_engines = find_available_engine()
+    available_engines = find_available_engine(engines=('pdftk', 'pdfjam'))
     logger.debug(f'Available engine: {available_engines}')
 
-    main(args.pdf, output=args.o, engine=available_engines[0])
+    reverse(args.pdf, output=args.o, engine=available_engines[0])
+
+
+if __name__ == '__main__':
+    main()
