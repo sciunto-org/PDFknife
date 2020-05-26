@@ -3,7 +3,8 @@ How to release
 
 * Update CHANGELOG
 * Update version 
-* git tag -a 'vX'
+* git tag -a 'X.Y'
+* git push --tag
 * Send the package on pypi
     python setup.py sdist upload
 * Update version in __init__.py
