@@ -18,7 +18,7 @@ setuptools.setup(
     author_email = "devel@sciunto.org",
     description  = "Command line tools to manipulate PDF files",
     long_description=long_description,
-    long_description_content_type='text/markdown'
+    long_description_content_type='text/markdown',
     packages     = setuptools.find_packages(exclude=['doc', 'benchmarks']),
     scripts      = ['bin/pdfA5.py',
                     'bin/pdfmerge.py',
