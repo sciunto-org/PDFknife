@@ -3,20 +3,25 @@
 
 import subprocess
 import logging
+import os.path
 
 logger = logging.getLogger()
 
 
-def split(filename, output=None):
+def split(filename, output=None, outpath=None):
     """
     Split PDFs
 
     :param filename: PDF filepath
     :param output: PDF output
+    ;param path: path output
     """
+    logger.debug(f'Split {filename}, with {output} in {outpath}')
     if output is None:
         name = filename.rstrip('.pdf')
         output = 'PAGE-%05d_' + name + '.pdf'
+    if outpath is not None:
+            output = os.path.join(outpath, output)
     command = ['gs',
                '-sDEVICE=pdfwrite',
                '-dNOPAUSE',
