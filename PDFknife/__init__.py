@@ -1,4 +1,4 @@
-__version__ = '0.2'
+__version__ = '0.2.0'
 
 
 from .A5 import A5
