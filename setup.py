@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name         = 'PDFknife',
-    version      = '0.2',
+    version      = '0.2.0',
     url          = "https://github.com/sciunto-org/PDFknife",
     author       = "Francois Boulogne",
     license      = "BSD",

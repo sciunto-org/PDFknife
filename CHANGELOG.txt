@@ -1,7 +1,9 @@
 
-0.2 -
+0.2 - 2020-05-26
 ================
 
+* Add pdfrecto
+* fix bin installation in setup.py
 
 0.1 - 2020-05-26
 ================
