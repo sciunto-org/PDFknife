@@ -2,9 +2,8 @@ How to release
 ==============
 
 * Update CHANGELOG
-* Update version 
+* Update version in setup.py and PDFknife/__init__.py
 * git tag -a 'X.Y'
-* git push --tag
+* git push --tag upstream master
 * Send the package on pypi
     python setup.py sdist upload
-* Update version in __init__.py
