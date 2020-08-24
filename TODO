@@ -1,5 +1,0 @@
-split landscape into two: https://superuser.com/questions/791022/how-can-i-split-in-half-a-double-page-scanned-pdf-in-a-single-pass
-
-mupdf
-mutool poster -x 2 in.pdf out.pdf
-

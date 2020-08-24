@@ -6,6 +6,7 @@ Collection of python scripts to manipulate PDFs. It relies on:
 * pdftk
 * pdfunite (poppler)
 * ghostscript
+* mupdf-tools
 
 
 # Install
