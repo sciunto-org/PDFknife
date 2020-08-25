@@ -7,7 +7,8 @@ import shutil
 logger = logging.getLogger()
 
 
-def find_available_engine(engines=('pdftk', 'gs', 'pdfunite', 'pdfjam')):
+def find_available_engine(engines=('pdftk', 'gs', 'pdfunite',
+                                   'pdfjam', 'mutool')):
     """
     Build a list of available engines.
 
