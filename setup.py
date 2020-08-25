@@ -21,6 +21,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     packages     = setuptools.find_packages(exclude=['doc', 'benchmarks']),
     scripts      = ['bin/pdfA5.py',
+                    'bin/pdfcut.py',
                     'bin/pdfmerge.py',
                     'bin/pdfrecto.py',
                     'bin/pdfreverse.py',
