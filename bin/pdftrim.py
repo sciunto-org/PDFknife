@@ -4,7 +4,7 @@
 import argparse
 import logging
 
-from PDFknife import __version__
+from PDFknife import __version__, find_available_engine
 from PDFknife import trim
 
 
@@ -46,6 +46,8 @@ def main():
 
     logger.debug(f'Script arguments: {args}')
 
+    available_engines = find_available_engine(engines=('pdfjam',))
+    logger.debug(f'Available engine: {available_engines}')
     trim(args.pdf,
          top=args.top, bottom=args.bottom,
          right=args.right, left=args.left,

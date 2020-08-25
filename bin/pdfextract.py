@@ -4,7 +4,7 @@
 import argparse
 import logging
 
-from PDFknife import __version__
+from PDFknife import __version__, find_available_engine
 from PDFknife import extract
 
 
@@ -31,6 +31,8 @@ def main():
 
     logger.debug(f'Script arguments: {args}')
 
+    available_engines = find_available_engine(engines=('mutool',))
+    logger.debug(f'Available engine: {available_engines}')
     extract(args.pdf)
 
 
