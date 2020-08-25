@@ -22,6 +22,7 @@ setuptools.setup(
     packages     = setuptools.find_packages(exclude=['doc', 'benchmarks']),
     scripts      = ['bin/pdfA5.py',
                     'bin/pdfcut.py',
+                    'bin/pdfextract.py',
                     'bin/pdfmerge.py',
                     'bin/pdfrecto.py',
                     'bin/pdfreverse.py',
