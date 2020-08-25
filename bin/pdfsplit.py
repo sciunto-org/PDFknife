@@ -32,6 +32,8 @@ def main():
 
     logger.debug(f'Script arguments: {args}')
 
+    available_engines = find_available_engine(engines=('gs',))
+    logger.debug(f'Available engine: {available_engines}')
     for f in args.pdf:
         split(f, output=args.o)
 
