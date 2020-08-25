@@ -4,6 +4,7 @@
 
 * Add pdfcut
 * Add pdfextract
+* Raise error if no engine is installed
 
 0.2.1 - 2020-05-26
 ==================
