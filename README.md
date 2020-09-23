@@ -1,6 +1,6 @@
 # PDFknife
 
-Collection of python scripts to manipulate PDFs. It relies on:
+A Swiss Army Knife sort of python scripts collection to manipulate PDFs. It relies on:
 
 * pdfjam
 * pdftk
@@ -19,13 +19,13 @@ The project is available on pypi: https://pypi.org/project/PDFknife/
 
 # Tools
 
-* pdfA5.py -- Turn a PDF in A5 format
-* pdfmerge.py -- Merge PDFs
-* pdfrecto.py -- Add blank page between each original page
-* pdfreverse.py -- Reverse page order
-* pdfshrink.py -- Compress a PDF
-* pdfsplit.py -- Make one page per file
-* pdftrim.py -- Change the margins
+* pdfknife-A5.py -- Turn a PDF in A5 format
+* pdfknife-merge.py -- Merge PDFs
+* pdfknife-recto.py -- Add blank page between each original page
+* pdfknife-reverse.py -- Reverse page order
+* pdfknife-shrink.py -- Compress a PDF
+* pdfknife-split.py -- Make one page per file
+* pdfknife-trim.py -- Change the margins
 
 # License
 
