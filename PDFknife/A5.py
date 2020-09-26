@@ -4,6 +4,8 @@
 import subprocess
 import logging
 
+from ._utils import default_output
+
 logger = logging.getLogger()
 
 
@@ -15,7 +17,7 @@ def A5(filename, output=None, *, engine='pdfjam'):
     :param output: PDF output
     """
     if output is None:
-        output = 'A5-' + filename
+        output = default_output('A5', filename)
 
     if engine == 'pdfjam':
         command = ['pdfjam',

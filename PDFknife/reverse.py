@@ -4,6 +4,8 @@
 import subprocess
 import logging
 
+from ._utils import default_output
+
 logger = logging.getLogger()
 
 
@@ -11,11 +13,11 @@ def reverse(filename, output=None, *, engine='pdftk'):
     """
     reverse a PDF
 
-    :param filenames: PDF filepath
+    :param filename: PDF filepath
     :param output: PDF output
     """
     if output is None:
-        output = 'REVERSED-' + filename
+        output = default_output('REVERSED', filename)
 
     if engine == 'pdfjam':
         command = ['pdfjam',

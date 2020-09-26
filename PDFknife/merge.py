@@ -4,6 +4,8 @@
 import subprocess
 import logging
 
+from ._utils import default_output
+
 logger = logging.getLogger()
 
 
@@ -15,7 +17,7 @@ def merge(filenames, output=None, *, engine='pdftk'):
     :param output: PDF output
     """
     if output is None:
-        output = 'MERGED-' + filenames[0]
+        output = default_output('MERGED', filenames[0])
 
     if engine == 'gs':
         command = ['gs',
