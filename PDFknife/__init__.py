@@ -3,6 +3,7 @@ __version__ = '0.2.3'
 
 from .A5 import A5
 from .cut import cut
+from .even import even
 from .extract import extract
 from .merge import merge
 from .reverse import reverse

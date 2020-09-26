@@ -20,6 +20,8 @@ The project is available on pypi: https://pypi.org/project/PDFknife/
 # Tools
 
 * pdfknife-A5.py -- Turn a PDF in A5 format
+* pdfknife-even.py -- Add blank page to odd pages PDF
+* pdfknife-extract -- Extract images from PDF
 * pdfknife-merge.py -- Merge PDFs
 * pdfknife-recto.py -- Add blank page between each original page
 * pdfknife-reverse.py -- Reverse page order
