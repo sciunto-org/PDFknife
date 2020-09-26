@@ -4,6 +4,7 @@
 import subprocess
 import logging
 import os.path
+from ._utils import default_output
 
 logger = logging.getLogger()
 
@@ -18,8 +19,7 @@ def split(filename, output=None, outpath=None):
     """
     logger.debug(f'Split {filename}, with {output} in {outpath}')
     if output is None:
-        name = filename.rstrip('.pdf')
-        output = 'PAGE-%05d_' + name + '.pdf'
+        output = default_output('PAGE-%05d_', filename)
     if outpath is not None:
             output = os.path.join(outpath, output)
     command = ['gs',

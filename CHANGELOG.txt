@@ -6,6 +6,7 @@
 ==================
 
 * Rename tools
+* FIX: default output path
 
 0.2.2 - 2020-09-15
 ==================

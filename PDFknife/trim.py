@@ -4,6 +4,8 @@
 import subprocess
 import logging
 
+from ._utils import default_output
+
 logger = logging.getLogger()
 
 
@@ -15,7 +17,8 @@ def trim(filename, top=1, bottom=1, right=1, left=1, output=None):
     :param output: PDF output
     """
     if output is None:
-        output = 'TRIMMED-' + filename
+        output = default_output('TRIMMED', filename)
+
     command = ['pdfjam',
                filename,
                '--trim',

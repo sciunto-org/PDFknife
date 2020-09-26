@@ -4,6 +4,8 @@
 import subprocess
 import logging
 
+from ._utils import default_output
+
 logger = logging.getLogger()
 
 
@@ -15,7 +17,8 @@ def cut(filename, output=None):
     :param output: PDF output
     """
     if output is None:
-        output = 'CUT-' + filename
+        output = default_output('CUT', filename)
+
     command = ['mutool', 'poster', '-x', '2', filename, output]
     logger.debug(command)
     logger.debug(f'Executed command: {command}')
