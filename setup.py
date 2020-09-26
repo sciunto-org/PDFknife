@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import setuptools
+from os import path
 
 # read the contents of your README file
-from os import path
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
@@ -22,6 +22,7 @@ setuptools.setup(
     packages     = setuptools.find_packages(exclude=['doc', 'benchmarks']),
     scripts      = ['bin/pdfknife-A5.py',
                     'bin/pdfknife-cut.py',
+                    'bin/pdfknife-even.py',
                     'bin/pdfknife-extract.py',
                     'bin/pdfknife-merge.py',
                     'bin/pdfknife-recto.py',
@@ -30,5 +31,5 @@ setuptools.setup(
                     'bin/pdfknife-shrink.py',
                     'bin/pdfknife-trim.py',
                     ],
-    install_requires = [],
+    requires = ['PyPDF2',],
 )
