@@ -38,6 +38,7 @@ setuptools.setup(
                     'bin/pdfknife-split.py',
                     'bin/pdfknife-shrink.py',
                     'bin/pdfknife-trim.py',
+                    'bin/pdfknife-watermark.py',
                     ],
     install_requires=install_requires,
 )

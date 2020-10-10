@@ -28,6 +28,7 @@ The project is available on pypi: https://pypi.org/project/PDFknife/
 * pdfknife-shrink.py -- Compress a PDF
 * pdfknife-split.py -- Make one page per file
 * pdfknife-trim.py -- Change the margins
+* pdfknife-watermark.py -- Watermark a text
 
 # License
 
