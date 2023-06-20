@@ -6,4 +6,5 @@ How to release
 * git tag -a 'X.Y'
 * git push --tag upstream master
 * Send the package on pypi
-    python setup.py sdist upload
+    pip install twine
+    twine upload dist/*
