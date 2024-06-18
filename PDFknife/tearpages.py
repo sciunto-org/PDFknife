@@ -6,7 +6,7 @@
 import logging
 import shutil
 import tempfile
-from PyPDF2 import PdfWriter, PdfReader
+from pypdf import PdfWriter, PdfReader
 
 
 def tearpages(filename, first=False, last=False):

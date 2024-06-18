@@ -19,7 +19,7 @@ with pathlib.Path('requirements.txt').open() as requirements_txt:
 
 setuptools.setup(
     name         = 'PDFknife',
-    version      = '0.2.4',
+    version      = '0.2.5',
     url          = "https://github.com/sciunto-org/PDFknife",
     author       = "Francois Boulogne",
     license      = "BSD",

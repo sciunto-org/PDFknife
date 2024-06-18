@@ -1,2 +1,2 @@
-PyPDF2>=3.0.0
+pypdf>=4.2.0
 setuptools

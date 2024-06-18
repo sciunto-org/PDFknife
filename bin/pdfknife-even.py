@@ -5,7 +5,7 @@ import argparse
 import logging
 
 from PDFknife import __version__
-from PDFknife import even
+from PDFknife import even_page
 
 
 def main():
