@@ -19,7 +19,7 @@ with pathlib.Path('requirements.txt').open() as requirements_txt:
 
 setuptools.setup(
     name         = 'PDFknife',
-    version      = '0.2.3',
+    version      = '0.2.4',
     url          = "https://github.com/sciunto-org/PDFknife",
     author       = "Francois Boulogne",
     license      = "BSD",
@@ -37,6 +37,7 @@ setuptools.setup(
                     'bin/pdfknife-reverse.py',
                     'bin/pdfknife-split.py',
                     'bin/pdfknife-shrink.py',
+                    'bin/pdfknife-tearpages.py',
                     'bin/pdfknife-trim.py',
                     ],
     install_requires=install_requires,
