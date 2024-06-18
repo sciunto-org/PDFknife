@@ -3,7 +3,6 @@
 
 import argparse
 import logging
-import PyPDF2
 
 from PDFknife import __version__
 from PDFknife import even
