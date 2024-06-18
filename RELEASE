@@ -7,4 +7,6 @@ How to release
 * git push --tag upstream master
 * Send the package on pypi
     pip install twine
+    python setup.py sdist
+    rm -rf dist/*egg
     twine upload dist/*
