@@ -39,6 +39,7 @@ setuptools.setup(
                     'bin/pdfknife-shrink.py',
                     'bin/pdfknife-tearpages.py',
                     'bin/pdfknife-trim.py',
+                    'bin/pdfknife-watermark.py',
                     ],
     install_requires=install_requires,
 )
