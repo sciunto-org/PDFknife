@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import logging
 from pypdf import PdfWriter, PdfReader
 
 from ._utils import default_output

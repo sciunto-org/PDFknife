@@ -21,7 +21,7 @@ def split(filename, output=None, outpath=None):
     if output is None:
         output = default_output('PAGE-%05d_', filename)
     if outpath is not None:
-            output = os.path.join(outpath, output)
+        output = os.path.join(outpath, output)
     command = ['gs',
                '-sDEVICE=pdfwrite',
                '-dNOPAUSE',

@@ -3,7 +3,6 @@
 # Author: Francois Boulogne
 # License: GPLv3
 
-import logging
 import shutil
 import tempfile
 from pypdf import PdfWriter, PdfReader
