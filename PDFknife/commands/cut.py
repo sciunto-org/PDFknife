@@ -6,15 +6,16 @@ from PDFknife import cut
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Cut a pdf',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Cut margin marks and toolbox artefacts off a PDF',
+        epilog='Uses mutool. Useful to clean up pages printed with crop/registration marks.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename')
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file')
     parser.add_argument('-o',
                         required=False, default=None,
-                        help='output')
+                        help='output PDF file (default: CUT-<input>)')
     args = parser.parse_args()
 
     if args.debug:

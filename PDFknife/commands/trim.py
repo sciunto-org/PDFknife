@@ -6,27 +6,28 @@ from PDFknife import trim
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Trim a pdf',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Trim (crop) edges of PDF pages',
+        epilog='Uses pdfjam --trim --clip. All values in millimetres.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename')
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file')
     parser.add_argument('-o',
                         required=False, default=None,
-                        help='output')
+                        help='output PDF file (default: TRIMMED-<input>)')
     parser.add_argument('--top',
-                        required=False, default=0,
-                        help='top length in mm')
+                        required=False, default=0, type=float,
+                        help='amount to trim from top in mm (default: 0)')
     parser.add_argument('--bottom',
-                        required=False, default=0,
-                        help='bottom length in mm')
+                        required=False, default=0, type=float,
+                        help='amount to trim from bottom in mm (default: 0)')
     parser.add_argument('--right',
-                        required=False, default=0,
-                        help='right length in mm')
+                        required=False, default=0, type=float,
+                        help='amount to trim from right in mm (default: 0)')
     parser.add_argument('--left',
-                        required=False, default=0,
-                        help='left length in mm')
+                        required=False, default=0, type=float,
+                        help='amount to trim from left in mm (default: 0)')
     args = parser.parse_args()
 
     if args.debug:

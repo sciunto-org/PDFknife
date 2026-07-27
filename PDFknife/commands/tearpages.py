@@ -6,16 +6,17 @@ from PDFknife import tearpages
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Remove first or last page of a PDF',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Remove the first and/or last page of a PDF',
+        epilog='Useful to strip blank pages from scanned documents.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename')
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file')
     parser.add_argument('--first', action='store_true',
-                        default=False, help='Tear the first page')
+                        default=False, help='remove the first page')
     parser.add_argument('--last', action='store_true',
-                        default=False, help='Tear the last page')
+                        default=False, help='remove the last page')
     args = parser.parse_args()
 
     if args.debug:

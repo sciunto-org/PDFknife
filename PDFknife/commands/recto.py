@@ -6,13 +6,15 @@ from PDFknife import recto
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Side-by-side A5 pdf',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Arrange two A5 recto pages side by side on A4 (top-to-bottom)',
+        epilog='Used together with pdfknife-A5 for booklet printing.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename')
-    parser.add_argument('-o', help='output', required=False, default=None)
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file')
+    parser.add_argument('-o', help='output PDF file (default: RECTO-<input>)',
+                        required=False, default=None)
     args = parser.parse_args()
 
     if args.debug:

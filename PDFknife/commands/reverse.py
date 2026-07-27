@@ -6,13 +6,15 @@ from PDFknife import reverse
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Reverse pdf',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Reverse page order of a PDF',
+        epilog='Uses pdftk or pdfjam. Last page becomes first, etc.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename')
-    parser.add_argument('-o', help='output', required=False, default=None)
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file')
+    parser.add_argument('-o', help='output PDF file (default: REVERSE-<input>)',
+                        required=False, default=None)
     args = parser.parse_args()
 
     if args.debug:

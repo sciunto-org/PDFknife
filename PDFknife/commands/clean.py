@@ -6,15 +6,16 @@ from PDFknife import clean
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Clean a pdf',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Recompress and clean a PDF with Ghostscript',
+        epilog='Uses gs -dPDFSETTINGS=/prepress. Useful to fix metadata or reduce file size.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename')
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file')
     parser.add_argument('-o',
                         required=False, default=None,
-                        help='output')
+                        help='output PDF file (default: CLEANED-<input>)')
     args = parser.parse_args()
 
     if args.debug:

@@ -6,13 +6,14 @@ from PDFknife import shrink
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Shrink a pdf',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Compress/reduce file size of PDFs with Ghostscript',
+        epilog='Levels: 1=screen (72dpi), 2=ebook (150dpi), 3=printer (300dpi), 4=prepress (300dpi), all=all levels.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename', nargs='+')
-    parser.add_argument('-l', help='Quality level (1, 2, 3, 4 or all), 1=low',
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file(s)', nargs='+')
+    parser.add_argument('-l', help='compression level: 1 (lowest quality) to 4 (highest), or all (default: all)',
                         required=False, default='all')
 
     args = parser.parse_args()

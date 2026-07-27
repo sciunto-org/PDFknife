@@ -6,19 +6,20 @@ from PDFknife import margin
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Add margin to a pdf',
-                                     epilog='')
+    parser = argparse.ArgumentParser(
+        description='Add a white margin around PDF pages',
+        epilog='Uses pdfjam --trim with --clip false to add margin. Default: 10 mm.')
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-d', '--debug', action='store_true',
-                        default=False, help='Run in debug mode')
-    parser.add_argument('pdf', metavar='PDF', help='Filename')
+                        default=False, help='enable debug logging')
+    parser.add_argument('pdf', metavar='PDF', help='input PDF file')
     parser.add_argument('-m',
                         default=10,
                         type=float,
-                        help='Margin in mm (default: 10)')
+                        help='margin width in millimetres (default: 10)')
     parser.add_argument('-o',
                         required=False, default=None,
-                        help='output')
+                        help='output PDF file (default: MARGIN-<input>)')
     args = parser.parse_args()
 
     if args.debug:
