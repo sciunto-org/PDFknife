@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PDFknife"
+version = "0.2.5"
+description = "Command line tools to manipulate PDF files"
+readme = "README.md"
+requires-python = ">=3.6"
+license = "BSD-3-Clause"
+authors = [
+    {name = "Francois Boulogne", email = "devel@sciunto.org"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
+dependencies = [
+    "pypdf>=4.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/sciunto-org/PDFknife"
+
+[project.scripts]
+pdfknife-A5 = "PDFknife.commands.A5:main"
+pdfknife-cut = "PDFknife.commands.cut:main"
+pdfknife-even = "PDFknife.commands.even:main"
+pdfknife-extract = "PDFknife.commands.extract:main"
+pdfknife-merge = "PDFknife.commands.merge:main"
+pdfknife-recto = "PDFknife.commands.recto:main"
+pdfknife-reverse = "PDFknife.commands.reverse:main"
+pdfknife-shrink = "PDFknife.commands.shrink:main"
+pdfknife-split = "PDFknife.commands.split:main"
+pdfknife-tearpages = "PDFknife.commands.tearpages:main"
+pdfknife-trim = "PDFknife.commands.trim:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = {find = {}}
+
+[tool.bumpver]
+current_version = "2026.07.27.0"
+version_pattern = "YYYY.0M.0D.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+tag_message = "v{new_version}"
+commit = true
+tag = true
+push = true
