@@ -5,7 +5,8 @@ import tempfile
 import os.path
 
 
-from PDFknife import merge, split
+from .merge import merge
+from .split import split
 
 logger = logging.getLogger()
 
