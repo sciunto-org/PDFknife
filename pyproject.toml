@@ -41,6 +41,9 @@ pdfknife-shrink = "PDFknife.commands.shrink:main"
 pdfknife-split = "PDFknife.commands.split:main"
 pdfknife-tearpages = "PDFknife.commands.tearpages:main"
 pdfknife-trim = "PDFknife.commands.trim:main"
+pdfknife-clean = "PDFknife.commands.clean:main"
+pdfknife-margin = "PDFknife.commands.margin:main"
+pdfknife-rotate = "PDFknife.commands.rotate:main"
 
 [tool.setuptools]
 include-package-data = true

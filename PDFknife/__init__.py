@@ -12,5 +12,8 @@ from .shrink import shrink
 from .split import split
 from .trim import trim
 from .tearpages import tearpages
+from .clean import clean
+from .margin import margin
+from .rotate import rotate
 
 from .engine import find_available_engine
