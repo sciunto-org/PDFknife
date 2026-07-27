@@ -30,7 +30,5 @@ def split(filename, output=None, outpath=None):
                '-sOutputFile=' + output,
                ]
     command.append(filename)
-    logger.debug(command)
     logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+    subprocess.run(command, check=True)

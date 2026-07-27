@@ -30,5 +30,4 @@ def A5(filename, output=None, *, engine='pdfjam'):
         raise ValueError(f'Wrong engine name: {engine}')
 
     logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+    subprocess.run(command, check=True)

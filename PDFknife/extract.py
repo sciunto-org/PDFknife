@@ -14,7 +14,5 @@ def extract(filename):
     :param filename: PDF filepath
     """
     command = ['mutool', 'extract', filename]
-    logger.debug(command)
     logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+    subprocess.run(command, check=True)

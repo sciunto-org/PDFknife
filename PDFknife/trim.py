@@ -28,7 +28,5 @@ def trim(filename, top=1, bottom=1, right=1, left=1, output=None):
                '--outfile',
                output,
                ]
-    logger.debug(command)
     logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+    subprocess.run(command, check=True)

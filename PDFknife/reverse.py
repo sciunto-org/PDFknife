@@ -35,5 +35,4 @@ def reverse(filename, output=None, *, engine='pdftk'):
         raise ValueError(f'Wrong engine name: {engine}')
 
     logger.debug(f'Executed command: {command}')
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+    subprocess.run(command, check=True)

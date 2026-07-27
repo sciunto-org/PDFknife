@@ -21,6 +21,5 @@ def rotate(filename, angle=90, output=None):
     else:
         raise RuntimeError('No engine found among mutool, pdftk.')
 
-    logger.debug(command)
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+    logger.debug(f'Executed command: {command}')
+    subprocess.run(command, check=True)

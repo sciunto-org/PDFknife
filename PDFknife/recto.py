@@ -29,8 +29,7 @@ def recto(filename, output=None, *, engine='pdfjam'):
         command = ['convert', 'xc:none', '-page', 'A4', blank_path]
 
         logger.debug(f'Executed command: {command}')
-        process = subprocess.Popen(command, stdout=subprocess.PIPE)
-        stdout, stderr = process.communicate()
+        subprocess.run(command, check=True)
 
     pages = [os.path.join(dirpath, name) for name in os.listdir(dirpath)]
 

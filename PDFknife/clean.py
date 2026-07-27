@@ -19,6 +19,5 @@ def clean(filename, output=None):
                '-dAutoRotatePages=/None',
                '-sOutputFile=' + output,
                filename]
-    logger.debug(command)
-    process = subprocess.Popen(command, stdout=subprocess.PIPE)
-    stdout, stderr = process.communicate()
+    logger.debug(f'Executed command: {command}')
+    subprocess.run(command, check=True)
