@@ -17,3 +17,4 @@ from .margin import margin
 from .rotate import rotate
 
 from .engine import find_available_engine
+from ._utils import setup_logging

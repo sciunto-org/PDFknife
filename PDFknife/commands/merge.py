@@ -1,7 +1,6 @@
 import argparse
-import logging
 
-from PDFknife import __version__, find_available_engine
+from PDFknife import __version__, find_available_engine, setup_logging
 from PDFknife import merge
 
 
@@ -19,17 +18,7 @@ def main():
                         default=None)
     args = parser.parse_args()
 
-    if args.debug:
-        llevel = logging.DEBUG
-    else:
-        llevel = logging.INFO
-    logger = logging.getLogger()
-    logger.setLevel(llevel)
-
-    steam_handler = logging.StreamHandler()
-    steam_handler.setLevel(llevel)
-    logger.addHandler(steam_handler)
-
+    logger = setup_logging(args.debug)
     logger.debug(f'Script arguments: {args}')
 
     available_engines = find_available_engine()

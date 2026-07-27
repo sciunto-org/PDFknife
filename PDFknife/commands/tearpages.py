@@ -1,7 +1,6 @@
 import argparse
-import logging
 
-from PDFknife import __version__
+from PDFknife import __version__, setup_logging
 from PDFknife import tearpages
 
 
@@ -19,17 +18,7 @@ def main():
                         default=False, help='remove the last page')
     args = parser.parse_args()
 
-    if args.debug:
-        llevel = logging.DEBUG
-    else:
-        llevel = logging.INFO
-    logger = logging.getLogger()
-    logger.setLevel(llevel)
-
-    steam_handler = logging.StreamHandler()
-    steam_handler.setLevel(llevel)
-    logger.addHandler(steam_handler)
-
+    logger = setup_logging(args.debug)
     logger.debug(f'Script arguments: {args}')
 
     tearpages(args.pdf, first=args.first, last=args.last)
