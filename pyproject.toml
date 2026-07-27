@@ -7,7 +7,7 @@ name = "PDFknife"
 version = "2026.07.27.0"
 description = "Command line tools to manipulate PDF files"
 readme = "README.md"
-requires-python = ">=3.6"
+requires-python = ">=3.10"
 license = "BSD-3-Clause"
 authors = [
     {name = "Francois Boulogne", email = "devel@sciunto.org"}
@@ -15,7 +15,10 @@ authors = [
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: BSD License",
+    "Topic :: Printing",
+    "Topic :: Utilities",
+    "Topic :: Text Processing",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
