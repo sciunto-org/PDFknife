@@ -14,7 +14,7 @@ def margin(filename, margin=10, output=None):
     command = ['pdfjam',
                filename,
                '--trim',
-               f'\'-{m} -{m} -{m} -{m}\'',
+               f'-{m} -{m} -{m} -{m}',
                '--clip',
                'false',
                '--outfile',
